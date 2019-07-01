@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 import urllib.request as req
 
@@ -10,8 +11,9 @@ res = req.urlopen(url)
 soup = BeautifulSoup(res, "html.parser")
 
 # 任意のデータを抽出 --- (※3)
+kenkana = soup.find("kenkana").string
 ken = soup.find("ken").string
 shi = soup.find("shi").string
 cho = soup.find("cho").string
-print(ken, shi, cho)
-
+zip = soup.find("zip").string
+print(kenkana,ken, shi, cho,zip)
